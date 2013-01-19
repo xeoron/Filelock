@@ -12,7 +12,7 @@ property adminYesOrNo : "No"
 property fileList : {}
 
 on open these_items --droplet code
-  -- This droplet processes files dropped onto the applet 
+	-- This droplet processes files dropped onto the applet 
 	-- NOTE that the variable this_item is a file reference in alias format
 	-- http://www.macosxautomation.com/applescript/sbrt/sbrt-10.html
 	resetList()
@@ -27,7 +27,7 @@ end resetList
 on run
 	if threeSimpleQuestions() is null then --to lock or unlock?
 		try
-			display dialog "Good bye." with title "Closing Filelock!" with icon alias ((path to me) & getIconLock() as string) buttons {"Cancel", "OK"} default button 2
+			display dialog "Good bye." with title "Closing Filelock!" buttons {"Cancel", "OK"} default button 2
 		on error StrError -- cancel selected, so do not shutdown program and keep using it
 			run
 		end try
@@ -38,28 +38,12 @@ on run
 	resetList()
 end run
 
-on getIconLock()
-	if lockORunlock is "Unlock" then
-		return "Contents:Resources:unlock.icns"
-	else
-		return "Contents:Resources:lock.icns"
-	end if
-end getIconLock
-
-on getIconWarning()
-	if lockORunlock is "Unlock" then
-		return "Contents:Resources:warning_unlock.icns"
-	else
-		return "Contents:Resources:warning_lock.icns"
-	end if
-end getIconWarning
-
 on threeSimpleQuestions()
 	--Question 1
 	set dialogMsg to "Would you like to lock or unlock files?"
 	set buttonChoices to {"Exit", "Lock", "Unlock"}
 	try
-		set lockORunlock to button returned of (display dialog dialogMsg with icon alias ((path to me) & "Contents:Resources:lock.icns" as string) buttons buttonChoices default button "Unlock" cancel button "Exit" with title "Lock/Unlock Files")
+		set lockORunlock to button returned of (display dialog dialogMsg buttons buttonChoices default button "Unlock" cancel button "Exit" with title "Lock/Unlock Files")
 	on error StrError -- error: -128 --exit selected
 		return null
 	end try
@@ -72,7 +56,7 @@ on threeSimpleQuestions()
 	set dialogMsg to "Use administrator privileges to " & lockORunlock & " these files?"
 	set buttonChoices to {"Yes", "No"}
 	--	set adminYesOrNo to button returned of (display dialog dialogMsg with icon 2 buttons buttonChoices default button "No" with title lockORunlock & " files...")
-	set adminYesOrNo to button returned of (display dialog dialogMsg with icon alias ((path to me) & getIconWarning() as string) buttons buttonChoices default button "No" with title lockORunlock & " files...")
+	set adminYesOrNo to button returned of (display dialog dialogMsg buttons buttonChoices default button "No" with title lockORunlock & " files...")
 	
 	if ((count of fileList) > 0) then --if list is not empty then droplet does not need question 3
 		return 1
@@ -83,7 +67,7 @@ on threeSimpleQuestions()
 	set dialogMsg to "Choose a folder or select which files to " & chgState
 	set buttonChoices to {"Cancel", "Folder", "Files"}
 	try
-		set openChoice to button returned of (display dialog dialogMsg with icon alias ((path to me) & getIconLock() as string) buttons buttonChoices default button "Files" with title lockORunlock & " files...")
+		set openChoice to button returned of (display dialog dialogMsg buttons buttonChoices default button "Files" with title lockORunlock & " files...")
 	on error StrError --cancel selected
 		return null
 	end try
@@ -142,13 +126,12 @@ on unlockFile() --fileList, lockORunlock, adminYesOrNo)
 		try
 			set shellCommand to "chflags -R" & space & cmdflag & space & quoted form of POSIX path of (oneItem as string) & " 2>/dev/null && 1>/dev/null"
 			--msg(shellCommand)
-			--(*
 			if adminYesOrNo is "Yes" then
 				try
 					do shell script shellCommand with administrator privileges
 				on error StrError
 					try
-						display dialog "Failed to " & lockORunlock & " file(s)… Closing Filelock! " with icon alias ((path to me) & getIconWarming() as string) with title StrError & "..."
+						display dialog "Failed to " & lockORunlock & " file(s)… Closing Filelock! " with title StrError & "..."
 					on error StrError -- cancel selected, so don't shutdown
 						unlockFile()
 					end try
@@ -156,7 +139,6 @@ on unlockFile() --fileList, lockORunlock, adminYesOrNo)
 			else
 				do shell script shellCommand
 			end if
-			--*)
 		end try
 	end repeat
 end unlockFile --(fileList, lockORunlock, adminYesOrNo)
