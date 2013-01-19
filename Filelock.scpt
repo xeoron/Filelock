@@ -85,8 +85,6 @@ on threeSimpleQuestions()
 		--return
 	else if openChoice is "Folder" then
 		try
-			--			set oneFolder to choose folder with prompt "Choose the folder whose files you want to " & chgState
-			--			copy {oneFolder} to fileList
 			copy {choose folder with prompt "Choose the folder whose files you want to " & chgState with invisibles} to fileList
 		on error StrError --cancel selected
 			return null
@@ -108,9 +106,9 @@ end msg
 
 on unlockFile() --fileList, lockORunlock, adminYesOrNo)	
 	(*Set the flag to either lock or unlock
-	-unlock a file: chflags -R nouchg ./*
-	-lock    a file: chflags -R uchg ./*  *)
-	--set cmdflag to "nouchg"
+	  unlock a file: chflags -R nouchg ./*
+	  lock    a file: chflags -R uchg ./* 
+	*)
 	
 	if lockORunlock is "Lock" then
 		set cmdflag to "uchg"
