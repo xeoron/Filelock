@@ -2,6 +2,10 @@ Filelock
 =====
 Is released under GPL v2 or higher. Please see this location for details: http://www.gnu.org/licenses/gpl.html
 
-Author:
+Author
 =====
-Jason Campisi 2012
+Jason Campisi 
+
+Copyleft
+=====
+2012
