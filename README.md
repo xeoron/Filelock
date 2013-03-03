@@ -1,6 +1,7 @@
 Filelock
 ========
 <img src="https://raw.github.com/xeoron/Filelock/master/filelock_screenshot.png"/>
+
 To lock and unlock files in Mac OS X with 3 simple questions. This prevents files from being changed or 
 from being deleted; they can go into the trash, but can't be deleted.
 
