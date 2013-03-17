@@ -1,3 +1,5 @@
+#! /usr/bin/osascript
+
 (*
 Filelock: to lock and unlock files in Mac OS X with 3 simple questions
 Author: Jason Campisi
