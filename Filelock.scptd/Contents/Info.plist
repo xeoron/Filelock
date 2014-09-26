@@ -21,6 +21,8 @@
 			<string>Viewer</string>
 		</dict>
 	</array>
+	<key>CFBundleIdentifier</key>
+	<string>com.apple.ScriptEditor.id.41F10844-650F-4519-BC7E-EAD4A81ED48A</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -43,7 +45,7 @@
 		<key>positionOfDivider</key>
 		<real>421</real>
 		<key>savedFrame</key>
-		<string>662 132 844 735 0 0 1920 1058 </string>
+		<string>513 197 844 735 0 0 1920 1058 </string>
 		<key>selectedTabView</key>
 		<string>event log</string>
 	</dict>
