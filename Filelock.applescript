@@ -1,7 +1,7 @@
 (*
 Filelock: to lock and unlock files in Mac OS X with 3 simple questions
 Author: Jason Campisi
-Version 0.5 
+Version 0.5.1 
 Date: 02/01/12-12/5/15 released under the gpl 2 or higher
 History: Created so that I could give it away to IT Consulting clients.
 Note: This program is merely a front-end to the chflags command.
