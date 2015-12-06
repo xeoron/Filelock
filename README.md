@@ -8,4 +8,7 @@ Droplet functionality or manually selecting which file(s) or folder you wish to 
 
 Requirements
 ========
-Mac OS X and AppleScript Editor to compile the code.
+Mac OS X
+Compile the code using the Applescript editor, or use the binary in the install folder.
+
+Note: requires Gatekeeper to be disabled to run, since there is no SSL cert

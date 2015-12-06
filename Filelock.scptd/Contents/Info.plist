@@ -36,6 +36,10 @@
 	<true/>
 	<key>WindowState</key>
 	<dict>
+		<key>bundleDividerCollapsed</key>
+		<true/>
+		<key>bundlePositionOfDivider</key>
+		<real>0.0</real>
 		<key>dividerCollapsed</key>
 		<false/>
 		<key>eventLogLevel</key>
@@ -45,9 +49,9 @@
 		<key>positionOfDivider</key>
 		<real>421</real>
 		<key>savedFrame</key>
-		<string>513 197 844 735 0 0 1920 1058 </string>
-		<key>selectedTabView</key>
-		<string>event log</string>
+		<string>52 301 1259 735 0 0 1920 1057 </string>
+		<key>selectedTab</key>
+		<string>log</string>
 	</dict>
 </dict>
 </plist>
